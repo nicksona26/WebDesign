@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        //creating new elements
+        function addToList() {
+            let el = document.createElement("li");
+            el.innerHTML = document.getElementById("txt").value;
+            document.body.appendChild(el);
+        }
+    </script>
+
+    <input id="txt" type='text'>
+
+    <button onclick="addToList()">add to your list</button>
+
+    <ul>
+
+    </ul>
+
+
+</body>
+
+</html>

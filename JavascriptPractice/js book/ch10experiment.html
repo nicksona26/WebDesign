@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .remove {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick=myFunc()> one </button>
+    <button onclick=myFuncTwo()> two </button>
+
+
+    <div id="one" class="remove">ass</div>
+    <div id="two" class="remove">hole</div>
+    <script>
+        function myFunc() {
+            document.getElementById("one").classList.toggle("remove");
+        }
+        function myFuncTwo() {
+            document.getElementById("two").classList.toggle("remove");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script>
+    //using the arguments length property to iterate through the items in the arguments
+    //and return the last item in the list
+
+    function showNames() {
+        let lastOne = "";
+        for (let i = 0; i < arguments.length; i++) {
+            lastOne = arguments[i];
+        }
+        return lastOne;
+    }
+    console.log(showNames("Javascript", "mike", "dave", "larry"));
+</script>
+
+</html>

@@ -1,0 +1,331 @@
+<html>
+<script type="text/javascript">
+
+    {
+        let arr1 = [1, 2, 3, 4, 5];
+        let index1 = arr1[1];
+        console.log(index1);
+        let product = `${index1}` + " times " + JSON.stringify(arr1[4]);
+        console.log(product);
+        let product2 = index1 * arr1[3];
+        let num = Math.log(product2);
+        let num2 = Math.floor(num);
+        console.log(num2);
+    }
+
+    {
+        list = [];
+        list.push("guitar", "headphones", "speakers");
+        list.splice(1, 1, "picks", "strings");
+        console.log(list);
+        list.splice(1, 1, "pedal1");
+        console.log(list);
+        list.splice(2, 3, "pedal3", "pedal4");
+        console.log(list);
+    }
+
+    {
+        let message = window.prompt("enter age");
+        let x = Number(message);
+        let id = (x >= 21);
+        id ? console.log("allowed") : console.log("not allowed");
+    }
+
+    {//computer vs. user
+        const arr1 = ["soldier", "wizard", "king"]
+        const arr2 = ["goblin", "witch", "giant"];
+        let computer = Math.floor(Math.random() * 3);
+        let player = Number(window.prompt("enter a number to select your player.. 0:soldier 1:wizard 2:king"));
+        let result = "player" + arr1[player] + " " + "vs computer" + arr2[computer] + " ";
+        if (player === computer) {
+            result += "tie"
+        } else if (player > computer) {
+            if (computer == 1 && player == 2) {
+                result += "computer wins";
+            } else {
+                result += "player wins";
+            }
+        } else {
+            if (computer == 2 && player == 1) {
+                result += "player wins";
+            } else {
+                result += "computer wins"
+            }
+        }
+        console.log(result);
+
+    }
+
+    let val = Number(window.prompt('enter a number 1 - 5'));
+    switch (val) {
+        case 1:
+            console.log("you got it");
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            console.log("wrong");
+            break;
+    }
+
+    {//simple counter
+        let counter = 50;
+        let step = 5;
+        do {
+            counter += step;
+            console.log(counter);
+        } while (counter < 75)
+    }
+
+    {
+
+        const myWork = [];
+        for (let i = 0; i < 10; i++) {
+            let stat = i % 3 ? true : false;
+            let temp = {
+                name: `Lesson ${i}`, status: stat
+            };
+            myWork.push(temp);
+        }
+        console.log(myWork);
+
+    }
+
+    {//generating a table of values
+        const myTable = [];
+        let rows = 11;
+        let columns = 10;
+        let counter = 0;
+
+        for (i = 0; i < rows; i++) {
+            let tempTable = [];
+            for (j = 0; j < columns; j++) {//loop within a loop
+                counter++;
+                tempTable.push(counter);
+            }
+            myTable.push(tempTable);
+        }
+        console.table(myTable);
+        //so basically just building arrays and putting them into one big array 
+        //i wonder how you would build a multiplication table?
+    }
+
+    {//grid table
+        let grid = [];
+        let cells = 64;
+        let counter = 0;
+        let row;
+
+
+        for (i = 0; i < cells + 1; i++) {
+            if (counter % 8 == 0) {
+                if (row != undefined) {
+                    grid.push(row);
+                }
+                row = [];
+            }
+            counter++;
+            let temp = counter;
+            row.push(temp);
+        }
+
+        console.table(grid);
+    }
+
+    {
+        //myOwnGridTable
+
+        let myGrid = [];
+        let counter = 0;
+        let row;
+        let cells = 81;
+
+        for (i = 0; i < cells + 1; i++) {
+            if (counter % 9 == 0) {
+                if (row != undefined) {
+                    myGrid.push(row);
+                }
+                row = [];
+            }
+            counter++
+            let temp = counter;
+            row.push(temp);
+        }
+        console.table(myGrid)
+    }
+
+    {//constructing an array by iterating through a loop
+        {
+            const arr1 = [];
+            for (let x = 0; x < 10; x++) {
+                arr1.push(x + 1);
+            }
+            console.log(arr1);
+
+            for (i = 0; i < arr1.length; i++) {
+                console.log(arr1[i]);
+            }//this iterates through the loop to output each index
+
+            for (let value of arr1) {
+                console.log(value);
+            }//this does the same thing as above
+        }
+    }
+
+    {//looping over objects 
+
+        const car = {
+            color: "white",
+            age: 15,
+            make: "Dodge"
+        };
+        let arr = [];
+
+        for (let prop in car) {
+            arr.push(car[prop]);
+            console.log(car[prop]);
+        }
+    }
+
+    {//math division table
+        const myTable = [];
+        const num = 10;
+        for (let x = 0; x < 12; x++) {
+            const temp = [];
+            for (let y = 0; y < num; y++) {
+                temp.push(x / y);
+            }
+            myTable.push(temp);
+        }
+
+        console.table(myTable);
+    }
+
+    {//immediately invoked functions
+        //these functions do not need to be called to be executed
+        //use these when you dont want to pollute the global object or isolate a variable declaration
+
+        let num1 = "1000";  //these functions will not take this variable because of scope
+
+        (function () {
+            let num1 = 6;
+            console.log(num1);
+        })();
+
+        let result =
+            (function () {
+                num1 = 8;
+                return num1;
+            })();; //this one does not get invoked automatically because it doesnt have a parameter
+        console.log(result);
+        console.log(num1);
+
+        (function (num1) {
+            console.log(`My name is ${num1}`);
+        })(8);
+
+        let band = (function (fav) {
+            console.log("My fav band is " + `${fav}`);
+        })("Queens"); //this gets invoked immediately even though it is an a variable
+
+    }
+
+    // calculating a factorial USING RECURSION TO CREATE A LOOP
+    {
+        function check(x) {
+            console.log(x);
+            if (x === 0) {
+                return 1;
+            } else {
+                return x * check(--x);
+            }
+
+        }
+        console.log(check(5));
+    }
+
+    {//countdown loops accomplished through RECURSION
+        let start = 20;
+        function countDown(val) {
+            console.log(val);
+            if (val < 1) {
+                return;
+            }
+            return countDown(--val);
+        }
+        countDown(start);
+
+        function countDown2(val) {
+            console.log(val);
+            if (val > 0) {
+                val--;
+                return countDown2(val)
+            }
+            return
+        }
+        countDown2(start);
+
+        function countDown3(val) {
+            console.log(val);
+            if (val > 0) {
+                val--;
+                return countDown3(val)
+            }
+            return
+        }
+    }
+
+    {//recursive function that counts up
+        function countUp(val) {
+            console.log(val);
+            if (val < 101) {
+                val++;
+                return countUp(val)
+            }
+            return
+        }
+    }
+
+    {//anonymous function
+
+        let myFunc = function (x) {
+            x += 300;
+            console.log(x);
+        };
+
+        myFunc(40);
+    }
+
+    {// in this example set timeout is used to invoke function1 1000 milliseconds after the code is ran
+        let function1 = x => console.log(x);
+
+        let function2 = y => console.log(y);
+
+        function three(z) {
+            console.log(z);
+        }
+
+        function four(w) {
+            console.log(w);
+            function1('one');
+            function2('two');
+            three("three");
+        }
+
+        four('four');
+
+        setTimeout(function1('one'), 1000);
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

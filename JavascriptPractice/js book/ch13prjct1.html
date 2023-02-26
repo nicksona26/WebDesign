@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<script>
+    //callback functions
+    function greet(fullName) {
+        console.log('Welcome, `${fullName[0]} ${fullName[1]}')
+    }
+    function processCall(user, callback) {
+        const fullName = user.split(" ");
+        callback(fullName);
+    }
+
+    processCall("Nick Sona", greet);
+</script>
+
+</html>

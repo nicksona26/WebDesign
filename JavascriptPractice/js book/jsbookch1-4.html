@@ -1,0 +1,358 @@
+<html>
+<script type="text/javascript">
+
+    {
+        let str1 = 'Laurence';
+        test1 = typeof (str1);
+        console.log(test1);
+    }
+
+    {
+        let str2 = "Svekis";
+        test2 = typeof (str2);
+        console.log(test2);
+    }
+
+    {
+        let val3 = undefined;
+        test3 = typeof (val3);
+        console.log(test3);
+    }
+
+    {
+        let val4 = null;
+        test4 = typeof (val4);
+        console.log(test4);
+    }
+
+    {
+        let myNum = 1000;
+        test2 = typeof (myNum);
+        console.log(test2);
+    }
+
+    {
+        // taking the prompt values to solve pythagorean theorm
+        let a = window.prompt("Value 1?");
+        let b = window.prompt("Value 2?");
+        a = Number(a);
+        b = Number(b);
+        let hypotenuseVal = ((a * a) + (b * b)) ** 0.5
+        console.log(hypotenuseVal);
+
+    }
+
+    {
+        let a = 3;
+        let b = 5;
+        let c = 7;
+
+        a + b;
+        a / c;
+        c = c % b;
+        console.log(a, b, c)
+    }
+
+    {
+        let miles = 500;
+        let kilometers = (miles * 130) / 209.2142;
+        console.log(kilometers);
+    }
+
+    {
+        let height = 100;
+        let weight = 300;
+        height = height * 2.54;
+        weight = weight / 2.2046;
+        console.log(height);
+        console.log(weight);
+        console.log(weight / height ** 2);
+    }
+
+    {
+        list = ["milk", "bread", "eggs"];
+        console.log(list.length);
+        list[1] = "bannanas";
+        console.log(list);
+    }
+
+    {
+        //array manipulation
+        list = [];
+        list.push("milk", "bread", "apples");
+        list.splice(1, 1, "bannanas", "eggs");
+        console.log(list);
+        lastvalue = list.pop();
+        console.log(lastvalue);
+        console.log(list.sort());
+        console.log(list.indexOf("milk"));
+        list.splice(1, 0, "carrots", "lettuce");
+        console.log(list);
+        list2 = ["juice", "pop"];
+        let list3 = list.concat(list2, list2);
+        console.log(list3);
+        console.log(list3.pop());
+        console.log(list3);
+    }
+
+    {
+        //accessing values within an array
+        arr = [1, 2, 3];
+        arr2 = [arr, arr, arr];
+        let value = arr2[0][1];
+        console.log(value);
+    }
+
+    {
+        //modifying objects
+
+        let car = {
+            carName: "durango",
+            color: "blue",
+            wheels: 4,
+            age: 18,
+            smellslike: "lettuce"
+        };
+        console.log(car);
+        let carColor = car.color;
+        console.log(carColor);
+        car[carColor] = "red";
+        carColor = "forSale";
+        car[carColor] = true;
+        console.log(car.color + " " + car.age);
+        console.log(car.forSale);
+    }
+
+    {
+        //objects nested within an array within an object...
+        let people = {
+            friends: [{
+                firstName: "joe",
+                lastName: "rogan",
+                id: 1
+            },
+
+            {
+                firstName: "bob",
+                lastName: "billy",
+                id: 2
+            },
+
+            {
+                firstName: "joey",
+                lastName: "dirt",
+                id: 3
+            },
+
+            ]
+        };
+        console.log(people);
+    }
+
+    {
+        //ch.3 project1
+        let theList = ['Laurence', 'Svekis', true, 35, null, undefined, { test: 'one', score: 55 }, ['one', 'two']];
+        theList.splice(0, 1, "FIRST");
+        console.log(theList);
+        theList.splice(2, 6, "MIDDLE", "hello World", "LAST");
+        console.log(theList);
+    }
+
+    {
+        //ch.3 project2
+        let inventory = [{
+            name: "kald",
+            model: "adfdf",
+            cost: "adf",
+            quantity: "adsfdf"
+        },
+        {
+            name: "adfadf",
+            model: "adfddf",
+            cost: "adfddf",
+            quantity: "adfddfa"
+        },
+        {
+            name: "adfdfad",
+            model: "adfafdf",
+            cost: "asdfadsf",
+            quantity: "adfaf"
+        }
+        ];
+
+        console.log(inventory[1].name);
+    }
+
+    {
+        //writing an if else statement
+        let bubble = true;
+        console.log(bubble);
+        if (bubble) {
+            console.log("its true");
+        } else {
+            console.log("its false");
+        }
+    }
+
+    {
+        let message = window.prompt("age?");
+        message = Number(message);
+
+        if (message >= 21) {
+            console.log("enter venue and drink baby");
+        } else if (message >= 19) {
+            console.log("come in but you cant drank");
+        } else {
+            console.log("gtfo");
+        }
+    }
+
+    {
+        let id = true
+        id ? console.log("allowed") : console.log("not allowed");
+    }
+
+    {
+        let question = window.prompt("ask a question there buddy");
+        let randomnumber = Math.floor(Math.random() * 6);
+        switch (randomnumber) {
+            case 0:
+                answer = "yes";
+                break;
+            case 1:
+                answer = "maybe";
+                break;
+            case 2:
+                answer = "no";
+                break;
+            case 3:
+                answer = "try again";
+                break;
+            case 4:
+                answer = "do you really want an answer?";
+                break;
+            case 5:
+                answer = "try asking a different way";
+                break;
+            case 6:
+                answer = "yes";
+                break;
+        }
+        console.log(question + "?" + ", " + answer);
+    }
+
+    {
+        prize = window.prompt("pick a number 1-10");
+        selection = "My selection: ";
+        prize = Number(prize);
+        switch (prize) {
+            case 1:
+            case 2:
+                output = "you didn't win shit";
+                break;
+            case 3:
+            case 4:
+            case 5:
+                output = "you won a good prize";
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                output = "you won a very gooooood prize";
+                break;
+            case 10:
+                output = "you fucking won it all bud";
+                break;
+            default:
+                output = "you didn't even play";
+                break;
+        }
+
+        finaloutput = selection + prize + " " + "prize: " + output;
+        console.log(finaloutput);
+
+
+    }
+
+    {
+        //ch.4 project 1
+        let input = window.prompt("enter a number");
+        input = Number(input);
+        if (input > 10) {
+            result = "it is greater";
+        } else if (input === 10) {
+            result = "it is equal";
+        } else if (input < 10) {
+            result = "it is less";
+        }
+
+        console.log(result);
+
+    }
+
+    {
+        let input = window.prompt("Enter a name")
+        switch (input) {
+            case "Billy":
+            case "Joe":
+            case "Dick":
+            case "Rob":
+            case "Mike":
+            case "Jane":
+                result = "He is a friend of mine";
+                break;
+            default:
+                result = "I dont know that mf";
+                break;
+        }
+        console.log(result);
+    }
+
+    {
+        const arr1 = ["rock", "paper", "scissors"];
+        let computer = Math.floor(Math.random() * 3);
+        let player = Math.floor(Math.random() * 3);
+        let result = "player" + arr1[player] + " " + "vs computer" + arr1[computer] + " ";
+        if (player === computer) {
+            result += "tie"
+        } else if (player > computer) {
+            if (computer == 0 && player == 2) {
+                result += "computer wins";
+            } else {
+                result += "player wins";
+            }
+        } else {
+            if (computer == 2 && player == 0) {
+                result += "player wins";
+            } else {
+                result += "computer wins"
+            }
+        }
+        console.log(result);
+
+    }
+
+
+    {
+        const solution = Math.floor(Math.random() * 6);
+        let isItCorrect = false;
+        let userNumber = window.prompt("enter a number between 0 and 5")
+        userNumber = Number(userNumber);
+        while (userNumber <= 5 && userNumber >= 0) {
+            if (userNumber == solution) {
+                isItCorrect = true;
+            } else if (userNumber < solution) {
+                isItCorrect = "too low!";
+            } else if (userNumber > solution) {
+                isItCorrect = "too high!";
+            }
+        }
+        console.log(isItCorrect);
+    }
+
+
+
+</script>
+
+</html>

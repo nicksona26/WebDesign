@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>check number</title>
+</head>
+
+<body>
+    <input id="input" type="text" placeholder="enter something">
+    <button>check</button>
+    <script>
+        //checking if NaN or not
+        const numVal = document.getElementById("input");
+        const val = numVal.value;
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", test);
+        function test(val) {
+            try {
+                if (isNaN(val)) {
+                    throw "Not a number";
+                } else {
+                    console.log("got number");
+                }
+            } catch (e) {
+                console.error(e);
+            } finally {
+                console.log("done " + val);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+    //demonstration of the use of json methods to parse json and convert string values to json
+    let myList = [{
+        "name": "learn javascript",
+        "status": true
+    },
+    {
+        "name": "try json",
+        "status": false
+    }
+    ];
+
+    const newStr = JSON.stringify(myList);
+    const newObj = JSON.parse(newStr);
+    newObj.forEach((el => {
+        console.log(el);
+    }))
+</script>
+
+</html>

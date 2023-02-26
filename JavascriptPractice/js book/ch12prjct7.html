@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+    //demonstration of how you can createe a valid JSON object thatcan be used as a Javascript object
+    let myList = [{
+        "name": "learn javascript",
+        "status": true
+    },
+    {
+        "name": "try JSON",
+        "status": false
+    }
+    ];
+
+    reloader();
+    function reloader() {
+        myList.forEach((el) => {
+            console.log(`${el.name} = ${el.status}`);
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,692 @@
+<html>
+<script type="text/javascript">
+
+    //ch.5
+
+    //practice exercise 5.1
+    {
+        const max = 5;
+        const ranNumber = Math.floor(Math.random() * max) + 1;
+        let guess = prompt("Guess a Number 1- " + max);
+        guess = Number(guess);
+        if (guess === ranNumber) {
+            console.log("you got it");
+        } else if (guess > ranNumber) {
+            console.log("too high!");
+        } else {
+            console.log("too low");
+        }
+    }
+
+    //practice 5.2
+    {
+        let counter = 0;
+        let step = 5;
+        do {
+            counter += step;
+            console.log(counter);
+        } while (counter < 100)
+    }
+
+    //practice 5.3
+    {
+        const myWork = [];
+        for (let i = 0; i < 10; i++) {
+            let stat = i % 2 ? true : false;
+            let temp = {
+                name: `Lesson ${i}`, status: stat
+            };
+            myWork.push(temp);
+        }
+        console.log(myWork);
+    }
+
+
+
+    //pracitce 5.4 generating a table of values
+    {
+        const myTable = [];
+        let rows = 4;
+        let columns = 4;
+        let counter = 0;
+
+        for (i = 0; i < rows; i++) {
+            let tempTable = [];
+            for (j = 0; j < columns; j++) {
+                counter++;
+                tempTable.push(counter);
+            }
+            myTable.push(tempTable);
+        }
+        console.table(myTable);
+    }
+
+
+
+
+    //practice 5.5 creating a grid table
+    {
+        let grid = [];
+        let cells = 64;
+        let counter = 0;
+        let row;
+
+
+        for (i = 0; i < cells + 1; i++) {
+            if (counter % 8 == 0) {
+                if (row != undefined) {
+                    grid.push(row);
+                }
+                row = [];
+            }
+            counter++;
+            let temp = counter;
+            row.push(temp);
+        }
+
+        console.table(grid);
+    }
+
+
+
+
+    //practice 5.6 construct an array through iterating a for loop, and then iterate with another for loop
+    // or a for of loop to return each value of the array
+    {
+        const arr1 = [];
+        for (let x = 0; x < 10; x++) {
+            arr1.push(x + 1);
+        }
+        console.log(arr1);
+
+        for (i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+
+        for (let value of arr1) {
+            console.log(value);
+        }
+    }
+
+
+
+    //practice 5.7 experiment with looping over objects and internal arrays
+    {
+        const dog = {
+            color: "white",
+            weight: 130,
+            sex: "male"
+        };
+
+        let arr = []
+
+        for (let prop in dog) {
+            arr.push(dog[prop]);
+            console.log(dog[prop]);
+        }
+
+        for (x = 0; x < arr.length; x++) {
+            console.log(arr[x]);
+        }
+    }
+
+
+
+
+
+
+
+    //practice 5.8 
+    {
+        let string = "";
+        let skip = 7;
+        for (i = 0; i < 11; i++) {
+            if (i === skip) {
+                continue;
+            }
+            string += i;
+        }
+        console.log(string);
+    }
+
+
+
+
+
+
+
+
+
+
+    //math multiplication table
+    {
+        const myTable = [];
+        const num = 10;
+        for (let x = 0; x < num; x++) {
+            const temp = [];
+            for (let y = 0; y < num; y++) {
+                temp.push(x * y);
+            }
+            myTable.push(temp);
+        }
+
+        console.table(myTable);
+    }
+
+
+
+
+
+
+
+    //ch.6 
+
+    //Practice 6.1 create your own function
+    {
+        function add(x, y) {
+            return x + y;
+        }
+
+
+        const y = 5;
+        const z = 9;
+        console.log(add(y, z));
+        console.log(add(3, 4));
+    }
+
+
+
+
+    //Practice 6.2 
+    {
+        const words = ["ugly", "great", "greasy", "fun", "dumb", "red", "blue", "crazy", "sane"];
+        function description() {
+            const name = window.prompt("Enter a name");
+            const describe = Math.floor(Math.random() * words.length);
+            console.log(name + " is " + words[describe]);
+        }
+        description();
+    }
+
+
+
+
+    //Practice 6.3 creating a basic calculator
+    {
+        const num1 = 5;
+        const num2 = 6;
+        let operation = "+";
+
+        function calculate(x, y, z) {
+            if (y == "+") {
+                console.log(x + z);
+            } else if (y == "-") {
+                console.log(x - z);
+            } else {
+                console.log(x + z);
+            }
+        }
+        calculate(num1, operation, num2);
+    }
+
+
+    //Practice 6.4 modified calculator
+    {
+        let operation = "+";
+        let results = [];
+
+        for (i = 0; i < 10; i++) {
+            const result1 = i * 5;
+            const result2 = i * i;
+            const result = calculate(result1, operation, result2);
+            results.push(result);
+        }
+
+        console.log(results);
+
+        function calculate(x, y, z) {
+            if (y == "+") {
+                return x + z;
+            } else if (y == "-") {
+                return x - z;
+            } else {
+                return x + z;
+            }
+        }
+    }
+
+
+    //practice 6.5 immediately invoked funciton expression
+    {
+        let num1 = "1000";
+        (function () {
+            let num1 = 6;
+            console.log(num1);
+        })();
+
+        let result =
+            (function () {
+                num1 = 8;
+                return num1;
+            })();;
+        console.log(result);
+        console.log(num1);
+
+        (function (num1) {
+            console.log(`My name is ${num1}`);
+        })(8);
+    }
+
+
+    //Practice 6.6 calculating a factorial USING RECURSION TO CREATE A LOOP
+    {
+        function check(x) {
+            console.log(x);
+            if (x === 0) {
+                return 1;
+            } else {
+                return x * check(--x);
+            }
+
+        }
+        console.log(check(9));
+    }
+
+
+    //Practice 6.7 creating countdown loops starting at a dynamic value of 10
+    {
+        let start = 10;
+        function countDown(val) {
+            console.log(val);
+            if (val < 1) {
+                return;
+            }
+            return countDown(--val);
+        }
+        countDown(start);
+
+        function countDown2(val) {
+            console.log(val);
+            if (val > 0) {
+                val--;
+                return countDown2(val)
+            }
+            return
+        }
+        countDown2(start);
+    }
+
+
+
+
+
+
+    //Practice 6.8 Anonymous functions 
+    {
+        let myFunc = function (x) {
+            console.log(x);
+        };
+        myFunc("hi");
+    }
+
+
+
+
+    //build a recursive function that counts up to 10
+    {
+        function countUp(num) {
+            console.log(num);
+            if (num < 10) {
+                countUp(++num);
+            }
+        }
+
+        countUp(1);
+    }
+
+    // Set timeout order
+    {
+        let function1 = x => console.log(x);
+
+        let function2 = y => console.log(y);
+
+        function three(z) {
+            console.log(z);
+        }
+
+        function four(w) {
+            console.log(w);
+            function1('one');
+            function2('two');
+            three("three");
+        }
+
+        four('four');
+
+        setTimeout(function1('one'), 1000);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //ch.7 
+    //ex
+    {
+        class Dog {
+            constructor(dogName, weight, color, breed) {
+                this.dogName = dogName;
+                this.weight = weight;
+                this.color = color;
+                this.breed = breed;
+            }
+        }
+
+        let dog = new Dog("javascript", 2.4, "black", "husky");
+    }
+
+
+
+    //practice 7.1
+    {
+        class Person {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+        }
+
+        let person1 = new Person("jon", "doe");
+        let person2 = new Person("jack", "boy");
+
+        console.log("hi " + person1 + " " + person2);
+    }
+    //ex
+    {
+        class Person {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+
+            greet() {
+                console.log("Hi there! I'm", this.firstname);
+            }
+        }
+
+        let p = new Person("mike", "star");
+        p.greet(); // outputs Hi there! I'm mike
+    }
+
+    //practice 7.2
+
+    {
+        class Person {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+            fullname() {
+                console.log(this.firstname + " " + this.lastname);
+            }
+        }
+
+        let person1 = new Person("jon", "doe");
+        let person2 = new Person("jack", "boy");
+
+        person2.fullname();
+        person1.fullname();
+    }
+
+    //practice 7.3 
+    {
+        class Animal {
+            constructor(species, noise) {
+                this.species = species;
+                this.noise = noise;
+            }
+
+            animalNoise() {
+                console.log(this.species + " " + this.noise);
+            }
+        }
+        Animal.prototype.favoriteToy = "chewtoy";
+
+        let animal1 = new Animal("dog", "woof");
+        animal1.animalNoise();
+        console.log(animal1.favoriteToy);
+    }
+
+
+    //employee tracking app
+    {
+        class Track {
+            constructor(firstname, lastname, years) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.years = years;
+            }
+
+        }
+
+        let person1 = new Track("der", "lik", 3);
+        let person2 = new Track("tom", "hanks", 4);
+        let workers = [person1, person2];
+
+        Track.prototype.details = function () {
+            return this.firstname + " " + this.lastname + " has worked here " + this.years + " years";
+        };
+
+        workers.forEach((person) => {
+            console.log(person.details());
+        });
+    }
+
+
+    //menu items price calculator
+    {
+        class Menu {
+            #offer1 = 10;
+            #offer2 = 20;
+            constructor(amount1, amount2) {
+                this.amount1 = amount1;
+                this.amount2 = amount2;
+            }
+            calTotal() {
+                return (this.amount1 * this.#offer1) + (this.amount2 * this.#offer2);
+            }
+            get total() {
+                return this.calTotal();
+            }
+        }
+
+        const val1 = new Menu(2, 0);
+        console.log(val1.total);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    //ch.8
+
+
+    {
+        //practice exercise 8.1 encoding/decoding
+        let uri = "how's it going";
+        let encodedUri = encodeURI(uri);
+        console.log("encoded:", encodedUri);
+        let decodedUri = decodeURI(encodedUri);
+        console.log("decoded:", decodedUri);
+    }
+
+
+    {
+        //practice exercise 8.2 using filter and indexOf
+        const arr = ["laurence", "mike", "larry", "kim", "joanne", "laurence", "mike", "laurence", "mike", "laurence", "mike"]
+        const arr2 = arr.filter((value, index, array) => {
+            console.log(value, index, array.indexOf(value));
+            return array.indexOf(value) === index;
+        });
+        console.log(arr2);
+    }
+
+
+    {
+        //practice exercise 8.3 using map()
+        const arr = [1, 4, 6, 54, 9988, 9, 0];
+
+        const myArr = arr.map(function (x) {
+            return x * 2;
+        });
+        console.log(myArr);
+
+        const arr2 = arr.map(x => x * 2);
+        console.log(arr2);
+
+    }
+
+    {//practice exercise 8.4 using .toLowerCase .split .join .toUpperCase .slice 
+        const val = "thIs will be capiTalized for each word";
+
+        function fixIt(str) {
+            str = str.toLowerCase();
+            const tempArr = [];
+            let words = str.split(" ");
+            words.forEach(word => {
+                let temp = word.slice(0, 1).toUpperCase() + word.slice(1)
+                tempArr.push(temp);
+            });
+            return tempArr.join(" ");
+        }
+        console.log(fixIt(val));
+    }
+
+    {
+        //practice exericse 8.5 
+        let val = "I love JavaScript";
+        val = val.toLowerCase();
+        let vowels = ["a", "e", "i", "o", "u"];
+        vowels.forEach((letter, index) => {
+            console.log(letter);
+            val = val.replaceAll(letter, index);
+        });
+        console.log(val);
+
+    }
+
+    {
+        //practice exercise 8.6 rounding/generating random numbers
+        console.log(Math.ceil(5.7));
+        console.log(Math.floor(5.7));
+        console.log(Math.round(5.7));
+        console.log(Math.random());
+        console.log(Math.floor(Math.random() * 11));
+        console.log(Math.floor(Math.random() * 10) + 1);
+        console.log(Math.floor(Math.random() * 100) + 1);
+        //function that generates random numbers given a min and a max
+        function ranNum(min, max) {
+            return Math.floor(Math.random() + (max - min + 1)) + min;
+        }
+        for (let x = 0; x < 100; x++) {
+            console.log(ranNum(1, 100));
+        }
+    }
+
+    {
+        //practice exercise 8.7
+        let date = new Date();
+        console.log(date);
+        const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+        let day = date.getDate();
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        console.log(month);
+        let myDate = `${months[month]} ${day} ${year}`;
+        console.log(myDate);
+    }
+
+    {
+        //chapter project Word Scrambler
+        let str = "JavaScript";
+
+        function scramble(val) {
+            let temp = "";
+            for (let i = 0; i < val.length; i++) {
+                console.log(val.length);
+                let index = Math.floor(Math.random() * val.length);
+                temp += val[index];
+                console.log(temp);
+                val = val.substr(0, index) + val.substr(index + 1);
+                console.log(val);
+            }
+            return temp;
+        }
+        console.log(scramble(str));
+    }
+
+    {
+        //chapter project Countdown Timer
+        const endDate = "Sept 1 2022";
+
+        function countdown() {
+            const total = Date.parse(endDate) - new Date();
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+            const hrs = Math.floor((total / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((total / 1000 / 60) % 60);
+            const secs = Math.floor((total / 1000) % 60);
+            return {
+                days,
+                hrs,
+                mins,
+                secs
+            };
+        }
+
+        function update() {
+            const temp = countdown();
+            let output = "";
+            for (const property in temp) {
+                output += (`${property}: ${temp[property]}`);
+            }
+            console.log(output);
+            setTimeout(update, 1000);
+        }
+        update();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
